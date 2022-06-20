@@ -102,3 +102,8 @@ Let's break myFunction down and review the individual parts that make it up:
 
 ![l2-67-iife-with-a-closure](https://user-images.githubusercontent.com/65639270/174638384-ca6995f3-3a8e-4c4f-9b38-d4c9dc81eece.png)
 - myFunction refers to an IIFE with a locally-defined variable, hi, and a returned function that closes over hi and prints its value to the console.
+
+
+Note that the function that is being returned closes over (i.e., captures) the hi variable. This allows myFunction to maintain a private, mutable state that cannot be accessed outside the function! What's more: because the function expressed is called immediately, the IIFE wraps up the code nicely so that we don't pollute the global scope.
+
+If any of this sounds familiar -- it's because IIFE's are very closely related to everything you've learned about scope and closures!
