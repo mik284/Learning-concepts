@@ -53,3 +53,37 @@ This is all because variables in JavaScript are traditionally defined in the sco
 -
 # CLOSURE
 A closure refers to the combination of a function and the lexical environment in which that function was declared. Every time a function is defined, closure is created for that function. This is especially powerful in situations where a function is defined within another function, allowing the nested function to access variables outside of it. Functions also keep a link to its parent's scope even if the parent has returned. This prevents data in its parents from being garbage collected.
+
+# immediately-invoked function expressions (IIFE)
+## Structure and Syntax
+An immediately-invoked function expression, or IIFE (pronounced iffy), is a function that is called immediately after it is defined. Check out the following example:
+
+(function sayHi(){
+    alert('Hi there!');
+  }
+)();
+
+// alerts 'Hi there!'
+The syntax might seem a bit odd, but all we're doing is wrapping a function in parentheses, then adding a pair of parentheses at the end of that to invoke it!
+
+Passing Arguments into IIFE's
+Let's look into how we can go about passing arguments into IIFE's. Consider the following example of an anonymous function expression that takes in a single argument:
+
+(function (name){
+    alert(`Hi, ${name}`);
+  }
+)('Andrew');
+
+// alerts 'Hi, Andrew'
+The second pair of parentheses not only immediately executes the function preceding it -- it's also the place to put any arguments that the function may need! We pass in the string 'Andrew', which is stored in the function expression's name variable. It is then immediately invoked, alerting the message 'Hi, Andrew' onto the screen.
+
+Here's another example of an IIFE, this time taking two arguments and returning their product:
+
+(function (x, y){
+    console.log(x * y);
+  }
+)(2, 3);
+
+// 6
+Again -- the arguments passed into the anonymous function (i.e., 2 and 3) belong in trailing set of parentheses.
+
