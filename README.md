@@ -66,7 +66,7 @@ An immediately-invoked function expression, or IIFE (pronounced iffy), is a func
 // alerts 'Hi there!'
 The syntax might seem a bit odd, but all we're doing is wrapping a function in parentheses, then adding a pair of parentheses at the end of that to invoke it!
 
-Passing Arguments into IIFE's
+## Passing Arguments into IIFE's
 Let's look into how we can go about passing arguments into IIFE's. Consider the following example of an anonymous function expression that takes in a single argument:
 
 (function (name){
@@ -86,4 +86,5 @@ Here's another example of an IIFE, this time taking two arguments and returning 
 
 // 6
 Again -- the arguments passed into the anonymous function (i.e., 2 and 3) belong in trailing set of parentheses.
+
 
