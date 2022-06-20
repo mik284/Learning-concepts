@@ -87,4 +87,18 @@ Here's another example of an IIFE, this time taking two arguments and returning 
 // 6
 Again -- the arguments passed into the anonymous function (i.e., 2 and 3) belong in trailing set of parentheses.
 
+## IIFE's and Private Scope
+One of the primary uses for IIFE's is to create private scope (i.e., private state). Recall that variables in JavaScript are traditionally scoped to a function. Knowing this, we can leverage the behavior of closures to protect variables or methods from being accessed! Consider the following example of a simple closure within an IIFE, referenced by myFunction:
 
+const myFunction = (
+  function () {
+    const hi = 'Hi!';
+    return function () {
+      console.log(hi);
+    }
+  }
+)();
+Let's break myFunction down and review the individual parts that make it up:
+
+![l2-67-iife-with-a-closure](https://user-images.githubusercontent.com/65639270/174638384-ca6995f3-3a8e-4c4f-9b38-d4c9dc81eece.png)
+- myFunction refers to an IIFE with a locally-defined variable, hi, and a returned function that closes over hi and prints its value to the console.
