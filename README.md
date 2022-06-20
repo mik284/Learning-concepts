@@ -50,3 +50,6 @@ This is all because variables in JavaScript are traditionally defined in the sco
 # Scope-chain process
 ![l2-42-scope-chain](https://user-images.githubusercontent.com/65639270/174599186-9cec7162-dfbe-4dd8-97b1-c77aa94a15a1.png)
 - When resolving a variable, the JavaScript engine begins by looking at the nested child function's locally-defined variables. If found, then the value is retrieved; if not, the JavaScript engine continues to looking outward until the variable is resolved. If the JavaScript engine reaches the global scope and is still unable to resolve the variable, the variable is undefined.
+-
+# CLOSURE
+A closure refers to the combination of a function and the lexical environment in which that function was declared. Every time a function is defined, closure is created for that function. This is especially powerful in situations where a function is defined within another function, allowing the nested function to access variables outside of it. Functions also keep a link to its parent's scope even if the parent has returned. This prevents data in its parents from being garbage collected.
