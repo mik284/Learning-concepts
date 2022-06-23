@@ -126,3 +126,32 @@ All in all, if you simply have a one-time task (e.g., initializing an applicatio
 ## Constructor Functions
 
 JavaScript's class system is built directly on using functions and objects. Calling (i.e., invoking) a constructor function with the new operator instantiates a new object. The same constructor function can be used to create different objects.
+
+## The `this` Keyword
+* method uses this to access an object on which it was called
+A common misconception is that this refers to the object where it is defined. This is not the case!
+
+The value of this is actually not assigned to anything until an object calls the method where this is used. In other words, the value assigned to this is based on the object that invokes the method where this is defined. Let's look at an example:
+
+const dog = {
+  bark: function () {
+    console.log('Woof!');
+  },
+  barkTwice: function () {
+    this.bark();
+    this.bark();
+  }
+};
+Let's go ahead and invoke both of dog's methods:
+
+dog.bark();
+// Woof!
+
+dog.barkTwice();
+// Woof!
+// Woof!
+We know that when we call dog.bark(); (or dog.barkTwice();) a variable this gets set. Since this can access the object it was called on, barkTwice can use this to access the dog object, which contains the bark method.
+
+But what if we just wrote bark(); instead of this.bark(); in barkTwice? The function would have first looked for a local variable named bark in the scope of barkTwice. If bark isn't found, it would have looked further up the scope chain.
+
+To tie things all together: this.bark(); tells barkTwice to look at dog -- the object that the method was called on -- to find bark.
