@@ -172,3 +172,7 @@ funFunction();
 ![l3-53-this-grid-2](https://user-images.githubusercontent.com/65639270/175356302-e766af15-52ae-4a74-9ddd-7d2740f3a331.png)
 
 If a constructor function is called with the new operator, the value of this is set to the newly-created object. If a method is invoked on an object, this is set to that object itself. And if a function is simply invoked, this is set to the global object: window.
+## Summary
+Functions, objects, and this are all interconnected. When invoking constructor functions with the new operator, a this variable is set to the newly-created object. When invoking a method on an object, this is set to that object itself. And when invoking a function in a browser environment, this is set to window, otherwise known as the global object.
+
+Along with all this, there is yet one more set of ways to invoke functions: with apply(), and with call(). Both methods share quite a few similarities, and they each allow us to specify how we want to set this. 
