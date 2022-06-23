@@ -155,3 +155,20 @@ We know that when we call dog.bark(); (or dog.barkTwice();) a variable `this` ge
 But what if we just wrote bark(); instead of `this.bark();` in barkTwice? The function would have first looked for a local variable named bark in the scope of barkTwice. If bark isn't found, it would have looked further up the scope chain.
 
 To tie things all together: this.bark(); tells barkTwice to look at dog -- the object that the method was called on -- to find bark.
+
+`There are four ways to call functions, and each way sets this differently.`
+
+- First, calling a constructor function with the new keyword sets `this` to a newly-created object.
+-  calling a function that belongs to an object (i.e., a method) sets this to the object itself. Recall that earlier, the dog object's barkTwice() method was able to access properties of dog itself.
+-  Third, calling a function on its own (i.e., simply invoking a regular function) will set this to window, which is the global object if the host environment is the browser.
+
+function funFunction() {
+  return this;
+}
+
+funFunction();
+// (returns the global object, `window`)
+- The fourth way to call functions allows us to set this ourselves! 
+![l3-53-this-grid-2](https://user-images.githubusercontent.com/65639270/175356302-e766af15-52ae-4a74-9ddd-7d2740f3a331.png)
+
+If a constructor function is called with the new operator, the value of this is set to the newly-created object. If a method is invoked on an object, this is set to that object itself. And if a function is simply invoked, this is set to the global object: window.
