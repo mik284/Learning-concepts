@@ -244,3 +244,15 @@ const myPrototype = Object.getPrototypeOf(ralph);
 console.log(myPrototype);
 // { favoriteFood: 'cheese', hasTail: true }
 Great! The prototype of ralph has the same properties as the result because they are the same object. Object.getPrototypeOf() is great for retrieving the prototype of a given object.
+# Summary
+
+Inheritance in JavaScript is when an object is based on another object. Inheritance allows us to reuse existing code, having objects take on properties of other objects.
+
+When a function is called as a constructor using the new operator, the function creates and returns a new object. This object is secretly linked to its constructor's prototype, which is just another object. Using this secret link allows an object to access the prototype's properties and methods as if it were its own. If JavaScript does not find a particular property within an object, it will keep looking up the prototype chain, eventually reaching Object() (top-level parent) if necessary.
+
+We also looked at a few methods and properties that allow use to check the origins and references of objects and their prototypes, namely:
+
+`hasOwnProperty()
+isPrototypeOf()
+Object.getPrototypeOf()
+.constructor`
