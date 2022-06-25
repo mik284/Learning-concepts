@@ -176,3 +176,71 @@ If a constructor function is called with the new operator, the value of this is 
 Functions, objects, and this are all interconnected. When invoking constructor functions with the new operator, a this variable is set to the newly-created object. When invoking a method on an object, this is set to that object itself. And when invoking a function in a browser environment, this is set to window, otherwise known as the global object.
 
 Along with all this, there is yet one more set of ways to invoke functions: with apply(), and with call(). Both methods share quite a few similarities, and they each allow us to specify how we want to set this. 
+
+## JavaScript provides three methods that allow us to set the value of this for a given function:
+
+* call() invokes the function and has arguments passed in individually, separated by commas.
+* apply() is similar to call(); it invokes the function just the same, but arguments are passed in as an array.
+* bind() returns a new function with this bound to a specific object, allowing us to call it as a regular function.
+
+## Checking an Object's Properties
+1. hasOwnProperty()
+hasOwnProperty() allows you to find the origin of a particular property. Upon passing in a string of the property name you're looking for, the method will return a boolean indicating whether or not the property belongs to the object itself (i.e., that property was not inherited).
+- Consider the Phone constructor with a single property defined directly in the function, and another property on its prototype object:
+
+function Phone() {
+  this.operatingSystem = 'Android';
+}
+
+Phone.prototype.screenSize = 6;
+Let's now create a new object, myPhone, and check whether operatingSystem is its own property, meaning that it was not inherited from its prototype (or somewhere else along the prototype chain):
+
+const myPhone = new Phone();
+
+const own = myPhone.hasOwnProperty('operatingSystem');
+
+console.log(own);
+// true
+Indeed it returns true! What about the screenSize property, which exists on Phone objects' prototype?
+
+const inherited = myPhone.hasOwnProperty('screenSize');
+
+console.log(inherited);
+// false
+Using hasOwnProperty(), we gain insight a certain property's origins.
+
+2. isPrototypeOf()
+Objects also have access to the isPrototypeOf() method, which checks whether or not an object exists in another object's prototype chain.
+Using this method, you can confirm if a particular object serves as the prototype of another object. Check out the following rodent object:
+
+const rodent = {
+  favoriteFood: 'cheese',
+  hasTail: true
+};
+Let's now build a Mouse() constructor function, and assign its prototype to rodent:
+
+function Mouse() {
+  this.favoriteFood = 'cheese';
+}
+
+Mouse.prototype = rodent;
+If we create a new Mouse object, its prototype should be the rodent object. Let's confirm:
+
+const ralph = new Mouse();
+
+const result = rodent.isPrototypeOf(ralph);
+
+console.log(result);
+// true
+Great! isPrototypeOf() is a great way to confirm if an object exists in another object's prototype chain.
+
+3. Object.getPrototypeOf()
+isPrototypeOf() works well, but keep in mind that in order to use it, you must have that prototype object at hand in the first place! What if you're not sure what a certain object's prototype is? Object.getPrototypeOf() can help with just that!
+
+Using the previous example, let's store the return value of Object.getPrototypeOf() in a variable, myPrototype, then check what it is:
+
+const myPrototype = Object.getPrototypeOf(ralph);
+
+console.log(myPrototype);
+// { favoriteFood: 'cheese', hasTail: true }
+Great! The prototype of ralph has the same properties as the result because they are the same object. Object.getPrototypeOf() is great for retrieving the prototype of a given object.
