@@ -256,3 +256,10 @@ We also looked at a few methods and properties that allow use to check the origi
 isPrototypeOf()
 Object.getPrototypeOf()
 .constructor`
+
+# Prototypal Inheritance: Subclasses
+Inheritance in JavaScript is all about setting up the prototype chain. This allows us to subclass, that is, create a "child" object that inherits most or all of a "parent" object's properties and methods. We can then implement any of the child object's unique properties and methods separately, while still retaining data and functionality from its parent.
+
+An object (instance) is secretly linked to its constructor function's prototype object through that instance's __proto__ property. You should never use the __proto__ property in any code you write. Using __proto__ in any code, or even inheriting just the prototype directly, leads to some unwanted side effects.
+
+To efficiently manage inheritance in JavaScript, an effective approach is to avoid mutating the prototype completely. Object.create() allows us to do just that, taking in a parent object and returning a new object with its __proto__ property set to that parent object.
