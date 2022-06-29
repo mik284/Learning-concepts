@@ -276,3 +276,12 @@ A mixin is a technique that copies data and functionality from a source object (
 - Great! Invoking the factory function allows us to compose a single object -- all without the use of the new operator. Before we take a look at a more complex example, let's summarize the differences between a factory function and a constructor function:
 ![screen-shot-2018-07-02-at-1 56 13-pm](https://user-images.githubusercontent.com/65639270/176434524-94ed58c5-08d1-4ae9-b814-2702e5fc6e6d.png)
 
+## Functional Mixins
+In the previous section, we used mixins to add features into a composite object. We also just leveraged factory functions to create objects without using the new operator or messing with prototypal inheritance. Let's combine what we've learned from mixins and factory functions and take things a step further with functional mixins!
+
+A functional mixin is a composable factory function that receives a _mixin_as an argument, copies properties and methods from that mixin, and returns a new object.
+
+Now, one of the great things about functional mixins is that they are composable; we can use them as individual pieces of code that add specific properties like an assembly line.
+
+## Summary
+A factory function creates objects. It is invoked as normal function, not with the new operator. Functional mixins take things a bit further by accepting a mixin as an argument, copies properties and methods from the mixin, and returns a new object.
