@@ -263,3 +263,9 @@ Inheritance in JavaScript is all about setting up the prototype chain. This allo
 An object (instance) is secretly linked to its constructor function's prototype object through that instance's __proto__ property. You should never use the __proto__ property in any code you write. Using __proto__ in any code, or even inheriting just the prototype directly, leads to some unwanted side effects.
 
 To efficiently manage inheritance in JavaScript, an effective approach is to avoid mutating the prototype completely. Object.create() allows us to do just that, taking in a parent object and returning a new object with its __proto__ property set to that parent object.
+
+
+# OOP
+
+## mixins
+A mixin is a technique that copies data and functionality from a source object (or source objects) to a target object. We can use ES6's Object.assign() to return a target object with properties from one or more source objects "mixed into" that target object.
