@@ -269,3 +269,10 @@ To efficiently manage inheritance in JavaScript, an effective approach is to avo
 
 ## mixins
 A mixin is a technique that copies data and functionality from a source object (or source objects) to a target object. We can use ES6's Object.assign() to return a target object with properties from one or more source objects "mixed into" that target object.
+
+## factory functions
+- A factory function is a function that returns an object, but isn't itself a class or constructor. As such, we invoke a factory function as a normal function without using the new operator. Using a factory function, we can easily create object instances without the complexity of classes and constructors!
+
+- Great! Invoking the factory function allows us to compose a single object -- all without the use of the new operator. Before we take a look at a more complex example, let's summarize the differences between a factory function and a constructor function:
+![screen-shot-2018-07-02-at-1 56 13-pm](https://user-images.githubusercontent.com/65639270/176434524-94ed58c5-08d1-4ae9-b814-2702e5fc6e6d.png)
+
