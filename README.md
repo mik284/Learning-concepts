@@ -293,3 +293,10 @@ A factory function creates objects. It is invoked as normal function, not with t
 - Keep in mind, however, that you generally use the Module Pattern when you just want one "version" of an object. If you're looking to instantiate unique objects that follow a certain blueprint, you can always still write and invoke a constructor function!
 
 * Since JavaScript doesn't have private variables, properties, or methods built-in, we can leverage the Module Pattern to enforce such privacy. At its core, the Module Pattern leverages scope, closures, and (commonly) IIFE's to not only hide data from external access, but to also provide a public interface for such data.
+
+## The Revealing Module Pattern
+The underlying philosophy of the Revealing Module Pattern is that, while we still maintain encapsulation (as in the Module Pattern), we also reveal certain properties (and methods). The key ingredients to the Revealing Module Pattern are:
+
+* An IIFE (wrapper)
+* The module content (variables, methods, objects, etc.)
+* A returned object literal
