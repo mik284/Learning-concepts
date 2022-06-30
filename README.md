@@ -285,3 +285,11 @@ Now, one of the great things about functional mixins is that they are composable
 
 ## Summary
 A factory function creates objects. It is invoked as normal function, not with the new operator. Functional mixins take things a bit further by accepting a mixin as an argument, copies properties and methods from the mixin, and returns a new object.
+
+# Module Pattern
+
+- The Module Pattern is commonly used to create private properties in JavaScript, but there are quite a few other benefits of incorporating the Module Pattern in code that you write as well. For one: organization. Modules are a larger unit of organization than, say, functions or objects. This helps partition code and provide structure as an application scales.
+
+- Keep in mind, however, that you generally use the Module Pattern when you just want one "version" of an object. If you're looking to instantiate unique objects that follow a certain blueprint, you can always still write and invoke a constructor function!
+
+* Since JavaScript doesn't have private variables, properties, or methods built-in, we can leverage the Module Pattern to enforce such privacy. At its core, the Module Pattern leverages scope, closures, and (commonly) IIFE's to not only hide data from external access, but to also provide a public interface for such data.
